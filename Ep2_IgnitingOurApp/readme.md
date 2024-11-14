@@ -53,3 +53,47 @@
 
 13- Should i put those node_modules files on production or git :
     -> The answer is no , you shouldn't and how to do that is to put that node_modules in .gitignore file
+    -> /node_modules
+
+14- Should i put those package.json and package-lock.json on production or git :
+    -> Yes , because it will contain the exact copy of each an every version of dependencies
+    -> If you have these ,you can get your node_module by just using npm install
+
+15- npx parcel index.html(entry file) - npx is used for execution of packages and npm is used to install
+        ->parcel will give a production read application
+
+16- Using cdn to use react in your project is costlier so we use react as it will make network call then receive the data, so that's why use react as one of dependencies in your package.json (npm i react)
+
+17- Parcel features (just go through Parcel documentation):
+    ->Dev Build
+    ->Local Server
+    ->HMR - Hot Module Replacement
+    ->File Watching Algorithm - written in C++
+    ->Caching - Faster Builds
+    ->Image Optimisation
+    ->Minification
+    ->Bundling
+    ->Compress
+    ->Consistent Hashing
+    ->Code Splitting
+    ->Differential Bundling - support older      browsers
+    ->Diagnostic Features(Beautiful errors throwing)
+    ->Error Handling
+    ->HTTPs
+    ->Tree Shaking - remove unused code
+
+18- Note : Not React will make our Webapp fast and optimised /minified but due to different different packages example Parcel and their advantages and features.
+
+19- npx parcel index.html ->Dev build and it will take lesser time as compared to production dev
+
+20- npx parcel build index.html -> throw error as in package.json the entry point is "App.js" written but there is no such file named ,remove that line ,then you will be able to do it.
+
+21- nodemodules/.parcel-cache and dist will not be pushed to github as these files are regenerated easily.
+
+22- Note that these dist and parcel cache is being used when we start our application on local host and if we mad any change in our index.html , it will used using HMR and serve to dist and .parcel-cache
+    ->this dist file contains compressed hmtl ,css and js file
+
+23- browserlist.dev(https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z)will tell you about each version of every browsers.
+    =>You can also put queries like for some specific ccountry
+
+

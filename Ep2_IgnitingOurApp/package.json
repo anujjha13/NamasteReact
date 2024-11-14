@@ -2,7 +2,7 @@
   "name": "ep2_ignitingourapp",
   "version": "1.0.0",
   "description": "Ep2_Igniting_App",
-  "main": "index.js",
+  
   "scripts": {
     "test": "jest"
   },
