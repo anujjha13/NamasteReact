@@ -42,6 +42,19 @@
 
    [ ![BableCompiler](https://github.com/anujjha13/NamasteReact/blob/main/Ep3_LayingFoundation/Img/EC81DF4B-8A39-4B2F-8C7F-14E0772E90CC.png?raw=true "Title")]
 
+5- How can you proove that jsx is not html code :
+
+    If you use class in jsx it will not work you have to use className (camelcase we are using in jsx ), so you can now clearly say it is not html ,it is looking like html
+
+6- React Components (Everything is React Component)
+
+    -> Class Based Components (Old)
+    -> Function Based Components (New) - A function which return the React Element  is known as Functional component
+
+7- Read the index.js file you will see lot of notes there as well.
+
+8- It is not required to use Functional component using tags in jsx you can use it as normal js code and put that inside curly braces and call if it is function or just put variable name if it is variable.
+
 Note:
 
  1.React Element is similar to DOM element.
@@ -51,6 +64,12 @@ Note:
 
  4. JS Engine or Browser will only understand pure js or EcmaScript (heard of ES6) ,so it will not able to understand line 27 code.
 
- 5. Babel(Basically a JS compiler) is used for transcompiling the jsx code so that it will read by JSengine or React will understand.It is not created by Facebook lol.And parcel has downloaded babel 
+ 5. Babel(Basically a JS compiler) is used for transcompiling the jsx code so that it will read by JSengine or React will understand.It is not created by Facebook lol.And parcel has downloaded babel .It wil also covert older version js code to es6 as well.
 
- 6. 
+ 6. We have used some extentions
+    . Es lint for linting
+    . Prettier to make our code pretty 😂
+    . Better comments
+    . Bracket colorizer
+
+ 7. 
