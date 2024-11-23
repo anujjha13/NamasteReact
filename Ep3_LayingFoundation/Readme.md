@@ -40,7 +40,7 @@
 
 ->If you go to this website you'll realise how babel convert jsx code :https://babeljs.io/
 
-    ![BableCompiler](NamasteReact/Ep3_LayingFoundation/Img/EC81DF4B-8A39-4B2F-8C7F-14E0772E90CC.png?raw=true "Title")
+   [ ![BableCompiler](NamasteReact/Ep3_LayingFoundation/Img/EC81DF4B-8A39-4B2F-8C7F-14E0772E90CC.png?raw=true "Title")](https://github.com/anujjha13/NamasteReact/blob/main/Ep3_LayingFoundation/Img/EC81DF4B-8A39-4B2F-8C7F-14E0772E90CC.png)
 
 Note:
 
