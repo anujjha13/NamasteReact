@@ -1,0 +1,27 @@
+{
+  "name": "ep4_talkischeapshowmethecode",
+  "version": "1.0.0",
+  "description": "Episodde 4",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anujjha13/NamasteReact.git"
+  },
+  "author": "Anuj Jha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anujjha13/NamasteReact/issues"
+  },
+  "homepage": "https://github.com/anujjha13/NamasteReact#readme",
+  "dependencies": {
+    "parcel": "^2.13.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}

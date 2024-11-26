@@ -55,6 +55,8 @@
 
 8- It is not required to use Functional component using tags in jsx you can use it as normal js code and put that inside curly braces and call if it is function or just put variable name if it is variable.
 
+9- Cross site scripting means lets suppose the data or js code which we are using inside curly braces inside jsx comes from some bad api ,so it is possible that api send some malacious code so jsx will also cleans it so that it will not affect on application.
+
 Note:
 
  1.React Element is similar to DOM element.
