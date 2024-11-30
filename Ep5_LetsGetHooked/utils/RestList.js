@@ -1,26 +1,5 @@
-import ReactDom from "react-dom/client"; 
-import React from "react";
-
-const Header = () => {
-    return (
-        <div className = "head" >
-            <img className="logo" alt="logo" src="https://dynamic.design.com/preview/logodraft/45acf276-9819-49ca-a552-1622fa18105c/image/large.png"/>
-            <ul className="nav-items">
-                <li>Home</li>
-                <li>Contact Us</li>
-                <li>Orders</li>
-            </ul>
-        </div>
-    )
-};
-const Search = ()=>{
-    return (
-        <div className="search">
-
-        </div>
-    )
-}
-const resList = [
+export const resList = 
+[
     {
       "info": {
         "id": "26724",
@@ -2102,76 +2081,5 @@ const resList = [
         "link": "https://www.swiggy.com/city/delhi/baskin-robbins-ice-cream-desserts-shankar-road-rajinder-nagar-rest68582",
         "type": "WEBLINK"
         }
-        }
-        ];
-      
-const RestaurantCard = (props) =>{
-    const {resObj}=props;
-    const {cloudinaryImageId,name,locality,cuisines,avgRating}= resObj?.info
-    return (
-        <div className="res-card">
-                <img alt="restaurant-img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/"+resObj.info.cloudinaryImageId}/>
-                <div className="res-detail">
-                    <h3>{name}</h3>
-                    <h4>{locality}</h4>
-                </div>
-                <div className="res-detail-misc">
-                    <h5>{cuisines.join(",")}</h5>
-                    <h5>{avgRating}</h5>
-                </div>
-        </div>
-    )
-}
-const Body = () => {
-    let count=0;
-    const items = [];
-
-    // Use a while loop to populate the items array
-    while (count < resList.length) {
-        items.push(<RestaurantCard resObj={resList[count]} />);
-        count++;
     }
-    return (
-        <div className="body">
-            <Search/>
-            <div className="res-container">
-                
-                {/* <RestaurantCard resObj={resList[0]}/>
-                <RestaurantCard resObj={resList[1]}/>
-                <RestaurantCard resObj={resList[2]}/>
-                <RestaurantCard resObj={resList[3]}/>
-                <RestaurantCard resObj={resList[4]}/>
-                <RestaurantCard resObj={resList[5]}/>
-                <RestaurantCard resObj={resList[6]}/>
-                <RestaurantCard resObj={resList[7]}/>
-                <RestaurantCard resObj={resList[8]}/> */}
-
-                {/* One way is to use while loop
-                    {items}
-                */}
-
-                {/* Second way is to use map filter */}
-                {resList.map((restaurant, index) => (
-                    <RestaurantCard key={restaurant.info.id}resObj={restaurant}/>
-                ))}
-            </div>    
-        </div>
-
-    );
-};
-
-const App = () => {
-    return (
-        <div className="app">
-        {/* Place Header component */}
-        <Header/>
-        {/* Place Body component */}
-        <Body/>
-        {/* Place Footer component */}
-        </div>
-    )
-};
-
-const root = ReactDom.createRoot(document.getElementById("root"));
-
-root.render(<App/>);
+];

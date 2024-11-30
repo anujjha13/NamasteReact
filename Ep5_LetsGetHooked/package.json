@@ -1,0 +1,20 @@
+{
+  "name": "ep5_letsgethooked",
+  "version": "1.0.0",
+  "description": "1- React Advantages     - Why we are using when we cna build using html,css ,js because it make our work easier and provide devloper better features.     - Break your app.js into multiple files like every components has separate file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "author": "Anuj Jha",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.13.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
