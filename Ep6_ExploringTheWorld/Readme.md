@@ -32,7 +32,26 @@
 
 8) Now we got rid of mock data and we are fetching live data from API
 
+9) setRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants); is this the right way No,you should use the optional chaining
 
+    setRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
+10) Now question is we are saying that variable used in useState is constant ,but how we are changing it on every render, because on every render the new variable is created and setting up with the new updated variable. And when setVariable function set up the useState variable , it will use diff alogorithm and only update which is required.
+
+11) UseState variable is known as Local state variable.
+
+12) When you typing in your search bar ,if you type any char ,the body is re-rendering on every entering of character ,not only on entering even if i delete some char ,then also it is being rendered.
+
+13) When we console.log() on starting of any component,you will se it is printing two times ,because we are calling an api which is setting our local state variable ,which leads to  re-renders the components (Reconcillation).
+
+14) DOM Manipulation is very expensive but react is very expert and efficient in it.
+
+15) Note : 
+
+    - If someone ever asked why React is superfast ,don't just say because of Virtual dom ,but the right answer is the React Fibre(New Re-concillation) ,finding the difference between the two virtual doms and only re-render the difference on Actual DOM.
+
+16) Why we require new local state variable filteredRestaurant ,because after making  one search your restaurant list will shorten to only the filtered result ,so to keep the list of all restaurants separately.
+
+17) In Episode 6.1 , WE GET TO KNOW THAT SWIGGY HAS ONE NEW API WHICH IS POST FETCH FOR update the list (to get new restaurants)
 
 
