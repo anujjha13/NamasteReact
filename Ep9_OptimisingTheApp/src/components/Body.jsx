@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import Search from "./Search";
-import {resList} from "../../utils/RestList"
+import {RES_API} from "../../utils/constants"
 import {useState,useEffect}from "react"
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,8 +11,7 @@ const Body = () => {
     console.log("Body Render happens")
     const fetchData = async () => {
         const data= await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING" ,
-          
+            RES_API
         );
 
         const json = await data.json();
