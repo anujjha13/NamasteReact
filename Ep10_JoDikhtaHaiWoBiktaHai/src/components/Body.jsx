@@ -45,27 +45,28 @@ const Body = () => {
         <Shimmer/>
     ) : 
        ( <div className="body">
-            <div className="filter-option">
-            <div className="search">
-                <input type="text" className="search-bar" value={searchValue} onChange={(e)=>{setSearchValue(e.target.value)}}/>
-                <button type="search-btn" onClick={()=>{
-                    const searchedRestaurant=restaurants.filter((res)=>{
-                        //why lowercase to search making efficient
-                        return res.info.name.toLowerCase().includes(searchValue.toLowerCase());
-                    });
-                    searchedRestaurant.length>0 ? setFilteredRestaurants(searchedRestaurant) : alert("The Restaurant you are searching for is not available right Now");
-                }}>Search</button>
-            </div>
-                <button onClick={handleFilter}>Top Rated Restaurant </button>
+            <div className="flex justify-around">
+                <button className="mt-2 p-1 ml-20 h-10 bg-red-400 border-2 border-red-900 rounded-md"onClick={handleFilter}>Top Rated Restaurant </button>
+                <div className="flex ml-80">
+                    <input type="text" className="mt-2 w-60 border-blue-600 rounded-md border-3 bg-blue-200 text-center" placeholder="Enter Restaurant name" value={searchValue} onChange={(e)=>{setSearchValue(e.target.value)}}/>
+                    <button type="search-btn" className="mt-1.5 p-1 ml-10 h-10 w-40 bg-red-400 border-2 border-red-900 rounded-md" onClick={()=>{
+                        const searchedRestaurant=restaurants.filter((res)=>{
+                            //why lowercase to search making efficient
+                            return res.info.name.toLowerCase().includes(searchValue.toLowerCase());
+                        });
+                        searchedRestaurant.length>0 ? setFilteredRestaurants(searchedRestaurant) : alert("The Restaurant you are searching for is not available right Now");
+                    }}>Search 🔎</button>
+                </div>
+                
             </div>
            
-                <div className="res-container">         
+            <div className="flex flex-wrap mt-5 justify-around">         
                     {filteredRestaurants.map((restaurant, index) => (
                         <Link to={"restaurant/"+restaurant.info.id}>
                             <RestaurantCard key={restaurant.info.id} resObj={restaurant}/>
                         </Link>
                     ))}  
-                </div>    
+            </div>    
         </div>
         )
 };
