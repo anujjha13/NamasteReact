@@ -45,5 +45,19 @@ Till now we have used css , You can use Sass (It has some superpower with css ,i
 
     You can search of any style you want in tailwindcss website ,but this is little bit tedious task for us ,so we have an extension also which helps us ,but try to use it in intial days from tailwind site .And the best part is you can hover on your written css property to get to know what actual css is applying.
 
+4) One advantage of using the tailwind is they only ship those css which you used in your application .
 
+5) One con is it make sometimes your code ugly as sometime you have to write a long line of css and it comes with initial learning curve.
+
+6) One thing if i have used m-4 or p-4 many times ,so will it import that many times? No ,it will only use one import .
+
+7) You can write @media queries : sm-small,md-medium devices ,lg- large devices:
+
+    example: <div className="bg-red-500 sm: bg-black"> It means when your device is greater than small :black otherwise it must be red. 
+
+8) You can make dark mode easily over here using tailwind css:
+
+    Synatx: <div className="dark:your dark mode css">
+
+9) You can write your css on the go while developing.
 See the last section of video from 44:00 duration

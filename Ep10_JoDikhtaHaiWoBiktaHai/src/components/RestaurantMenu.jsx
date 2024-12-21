@@ -11,7 +11,7 @@ const RestaurantMenu = () => {
   const resMenu=useRestaurantMenu(resId);
 
   return (
-    <div className="restaurant-menu">
+    <div className="m-20 p-2 ml-80 bg-red-400 border-double border-2 border-black max-w-screen-md ">
             {resMenu.map((res,index)=> (
                <DishCard dishObj={res}/>
             ))}         
