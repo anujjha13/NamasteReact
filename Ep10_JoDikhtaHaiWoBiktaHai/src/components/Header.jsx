@@ -4,7 +4,7 @@ const Header = () => {
 
     const onlineStatus=useOnlineStatus();
     return (
-        <div className = "h-20 m-2 flex justify-between bg-purple-300 border-solid border-2 border-black" >
+        <div className = "h-20 m-2 flex justify-between bg-purple-300 border-solid border-2 border-black shadow-sm" >
             <img className="w-20" alt="logo" src="https://dynamic.design.com/preview/logodraft/45acf276-9819-49ca-a552-1622fa18105c/image/large.png"/>
             <div className="nav-items">
                 <ul className="flex justify-between p-5">

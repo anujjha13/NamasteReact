@@ -40,7 +40,10 @@ Till now we have used css , You can use Sass (It has some superpower with css ,i
         - w- (width)
         - p- padding
         - m- margin
-        - px - padding on x axis
-        -
+        - px - padding on x axis and py- padding on y-axis
+        - use size-96 for img tag as earlier i was facing issue in non-uniformity of restaurant image in cards
 
     You can search of any style you want in tailwindcss website ,but this is little bit tedious task for us ,so we have an extension also which helps us ,but try to use it in intial days from tailwind site .And the best part is you can hover on your written css property to get to know what actual css is applying.
+
+
+See the last section of video from 44:00 duration
