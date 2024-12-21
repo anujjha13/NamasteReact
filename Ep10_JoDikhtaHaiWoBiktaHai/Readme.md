@@ -41,4 +41,6 @@ Till now we have used css , You can use Sass (It has some superpower with css ,i
         - p- padding
         - m- margin
         - px - padding on x axis
-        - 
+        -
+
+    You can search of any style you want in tailwindcss website ,but this is little bit tedious task for us ,so we have an extension also which helps us ,but try to use it in intial days from tailwind site .And the best part is you can hover on your written css property to get to know what actual css is applying.
