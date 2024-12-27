@@ -20,4 +20,22 @@ const RestaurantCard = (props) =>{
     )
 }
 
+//adding promoted label applying higher order component
+//reason why it is called pure function because we are not channging or modifying our component which is passed i.e RestaurantCard
+// ... is spread operator which passes all the props which i received.
+export const DiscountLabel = (RestaurantCard) => {
+    
+    return (props) => {
+        {console.log(props.resObj)}
+        return (   
+            <div>
+                <label className="absolute bg-black text-white p-2 -ml-4 mt-4 rounded-lg">
+                    {props.resObj.info.aggregatedDiscountInfoV3.header + " " +props.resObj.info.aggregatedDiscountInfoV3.subHeader}
+                </label>
+                <RestaurantCard {...props}/>
+            </div>
+        )
+    }
+}
+
 export default RestaurantCard;

@@ -61,3 +61,16 @@ Till now we have used css , You can use Sass (It has some superpower with css ,i
 
 9) You can write your css on the go while developing.
 See the last section of video from 44:00 duration
+
+
+
+||||||||||||||       Episode 11 |||||||||||||||||||
+
+
+1) HigherOrder Component take a component and return the component(it works as a enhancer which take a component ,enhances it and give the new component).
+
+2) We gonna apply Or make HigherOrder Component in our app for using Promoted Restaurants lablel in it. But unfortunately the promote key is not present in swiggy api wheni am making so i haved used to add label for discount on restaurants
+
+3) To overlap the lable we have used absolute property .
+
+4) UI is very static it doesn't have llogic of its own ,the UI layer is powered by Data layer ,and the if you are able to manage your Data layer ,then your react Application can be handled easily .

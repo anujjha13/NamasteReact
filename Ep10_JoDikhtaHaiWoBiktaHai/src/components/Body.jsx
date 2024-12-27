@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard ,{DiscountLabel} from "./RestaurantCard";
 import Search from "./Search";
 import {RES_API} from "../../utils/constants"
 import {useState,useEffect}from "react"
@@ -9,6 +9,7 @@ const Body = () => {
     const [searchValue,setSearchValue] = useState("");
     const [filteredRestaurants,setFilteredRestaurants] =useState([]);
     console.log("Body Render happens")
+    const DiscountLabelRestaurant = DiscountLabel(RestaurantCard);
     const fetchData = async () => {
         const data= await fetch(
             RES_API
@@ -63,7 +64,7 @@ const Body = () => {
             <div className="flex flex-wrap mt-5 justify-around">         
                     {filteredRestaurants.map((restaurant, index) => (
                         <Link to={"restaurant/"+restaurant.info.id}>
-                            <RestaurantCard key={restaurant.info.id} resObj={restaurant}/>
+                            <DiscountLabelRestaurant key={restaurant.info.id} resObj={restaurant}/>:          
                         </Link>
                     ))}  
             </div>    
