@@ -74,3 +74,21 @@ See the last section of video from 44:00 duration
 3) To overlap the lable we have used absolute property .
 
 4) UI is very static it doesn't have llogic of its own ,the UI layer is powered by Data layer ,and the if you are able to manage your Data layer ,then your react Application can be handled easily .
+
+5) Now we will make one feature named accodion for restaurant menu till now we have used only recomended category to show the menu for that particular restauarant now we will add more.
+
+6) Now if you want to add accordian in your restaurant menu ,you will see a lot of card over there you need to only use menu thing right ,so you have to filter it out on basis of what?  => "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory", but you can't use @ so there is a way to do it using [],
+
+7) We have made accordian that use toggle to collapse and expand ,but now we want to add one more functionality where if i expands one ,it will collapse other ,only one at a time should expand.Till now we have made ,in that code ,only one category can expand or collapse on itself but don't have access to other categories.
+
+8) Use this extenion for debugging your react application :React Dev Tools which will provide you two options ,components ,profilers.
+
+    - Components:  It is basically a virtual Dom ,in left we have UI and on right we have Data layer ,if you click on any component ,you will see all data related to that components
+
+    - Profiller -It will record your response on that application ,it will give you details of time to reload
+
+9) Lifting State Up is the concept which will work over here so the code which we have done will require some changes ,firstly we will change each category have its own statevariable to show to give the responisibility to its parent. and then will provide the function to set its value to its child.
+
+10) This is what we called Controlled or uncontrolled component , uncontrolled component is called what we have earlier used ,controller component is the component what we will going to use (basically the parent is controlling the child is known as controlled components)
+
+11) 

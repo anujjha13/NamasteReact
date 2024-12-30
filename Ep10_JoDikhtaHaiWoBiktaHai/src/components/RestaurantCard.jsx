@@ -26,13 +26,20 @@ const RestaurantCard = (props) =>{
 export const DiscountLabel = (RestaurantCard) => {
     
     return (props) => {
-        {console.log(props.resObj)}
-        return (   
-            <div>
-                <label className="absolute bg-black text-white p-2 -ml-4 mt-4 rounded-lg">
-                    {props.resObj.info.aggregatedDiscountInfoV3.header + " " +props.resObj.info.aggregatedDiscountInfoV3.subHeader}
-                </label>
-                <RestaurantCard {...props}/>
+        console.log(props?.resObj?.info?.aggregatedDiscountInfoV3);
+
+        const discountInfo = props?.resObj?.info?.aggregatedDiscountInfoV3;
+        const header = discountInfo?.header;
+        const subHeader = discountInfo?.subHeader;
+
+        return (
+            <div className="relative">
+                {header && (
+                    <label className="absolute bg-black text-white p-2 -ml-4 mt-4 rounded-lg">
+                        {header + (subHeader ? ` ${subHeader}` : "")}
+                    </label>
+                )}
+                <RestaurantCard {...props} />
             </div>
         )
     }

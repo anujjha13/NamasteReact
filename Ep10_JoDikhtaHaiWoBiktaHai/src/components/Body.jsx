@@ -8,7 +8,7 @@ const Body = () => {
     const [restaurants, setRestaurants] = useState([]);
     const [searchValue,setSearchValue] = useState("");
     const [filteredRestaurants,setFilteredRestaurants] =useState([]);
-    console.log("Body Render happens")
+    // console.log("Body Render happens")
     const DiscountLabelRestaurant = DiscountLabel(RestaurantCard);
     const fetchData = async () => {
         const data= await fetch(
@@ -16,13 +16,13 @@ const Body = () => {
         );
 
         const json = await data.json();
-        console.log(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        //console.log(json.data.cards[2].card.card);
         
         // setRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
 
         //optional chaining
-        setRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
     useEffect(() => {fetchData()},[]);
     
@@ -64,7 +64,7 @@ const Body = () => {
             <div className="flex flex-wrap mt-5 justify-around">         
                     {filteredRestaurants.map((restaurant, index) => (
                         <Link to={"restaurant/"+restaurant.info.id}>
-                            <DiscountLabelRestaurant key={restaurant.info.id} resObj={restaurant}/>:          
+                            <DiscountLabelRestaurant key={restaurant.info.id} resObj={restaurant}/>     
                         </Link>
                     ))}  
             </div>    
