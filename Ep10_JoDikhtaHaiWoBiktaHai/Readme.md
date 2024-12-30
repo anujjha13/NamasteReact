@@ -91,4 +91,6 @@ See the last section of video from 44:00 duration
 
 10) This is what we called Controlled or uncontrolled component , uncontrolled component is called what we have earlier used ,controller component is the component what we will going to use (basically the parent is controlling the child is known as controlled components)
 
-11) 
+11) I have added the above functionality the difficulties i faced while building is first when passing more than 1 paramter you should destructure it on fly ,otherwise do separetly ,you will not get directly the value ,as you know in js everything is object so ,that boolean also becomes object so you need to destructure it.
+
+12)
