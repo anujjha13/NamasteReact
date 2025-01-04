@@ -16,13 +16,21 @@ const Body = () => {
         );
 
         const json = await data.json();
-        //console.log(json.data.cards[2].card.card);
+        console.log(json.data.cards[5]);
         
+        // restaurantsToShow=json.data.cards.filter((card)=>{
+        //     return card.card.card["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle";
+        // })
+        // console.log(restaurantsToShow);
+        // restaurantsTotal= restaurantsToShow.map((restaurant)=>
+        //     restaurant.card.card.gridElements.infoWithStyle.restaurants
+        // )
+        // console.log(restaurantsTotal);
         // setRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
 
         //optional chaining
-        setRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
     useEffect(() => {fetchData()},[]);
     

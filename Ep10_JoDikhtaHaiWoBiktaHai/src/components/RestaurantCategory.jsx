@@ -1,8 +1,8 @@
 import React from 'react'
 import DishCard from './DishCard';
 export const RestaurantCategory = ({resObj ,showItems ,setShowCategory}) => {
-    console.log(showItems);
-    console.log(resObj);
+   // console.log(showItems);
+   // console.log(resObj);
     const handleShowItems = () => {
         setShowCategory();
     }

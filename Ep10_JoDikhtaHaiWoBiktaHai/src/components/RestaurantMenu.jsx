@@ -8,7 +8,7 @@ const RestaurantMenu = () => {
   const { resId }= useParams();
   const resMenu=useRestaurantMenu(resId);
   const [showIndex, setShowIndex] = useState(null);
-  console.log(resMenu);
+  //console.log(resMenu);
   return (
     // m-20 p-2 ml-80 bg-red-400 border-double border-2 border-black max-w-screen-md
     <div className="text-center w-6/12 mt-20 justify-self-center">

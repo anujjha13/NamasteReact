@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 const Header = () => {
 
+    const cartItems = useSelector((store) => store.cart.items); 
     const onlineStatus=useOnlineStatus();
     return (
         <div className = "h-20 m-2 flex justify-between bg-purple-300 border-solid border-2 border-black shadow-sm" >
@@ -12,7 +14,7 @@ const Header = () => {
                     <li className="mr-16"><Link to="/">Home </Link></li>
                     <li className="mr-16"><Link to="/contact">Contact Us </Link></li>
                     <li className="mr-16"><Link to="/instagrocery">Insta Grocery </Link></li>
-                    <li className="mr-16">Orders</li>
+                    <li className="mr-16"><Link to="/cart">Cart 🛒 {cartItems.length === 0 ? "" : ": "+cartItems.length}</Link></li>
                 </ul>
             </div>
         </div>

@@ -87,10 +87,288 @@ See the last section of video from 44:00 duration
 
     - Profiller -It will record your response on that application ,it will give you details of time to reload
 
-9) Lifting State Up is the concept which will work over here so the code which we have done will require some changes ,firstly we will change each category have its own statevariable to show to give the responisibility to its parent. and then will provide the function to set its value to its child.
+9) Lifting State Up is the concept which will work over here so the code which we have done will require some changes ,firstly we will change each category have its own statevariable to show to give the responisibility to its parent. and then will provide the function to set its value to its child. ->Check react documentation
 
 10) This is what we called Controlled or uncontrolled component , uncontrolled component is called what we have earlier used ,controller component is the component what we will going to use (basically the parent is controlling the child is known as controlled components)
 
 11) I have added the above functionality the difficulties i faced while building is first when passing more than 1 paramter you should destructure it on fly ,otherwise do separetly ,you will not get directly the value ,as you know in js everything is object so ,that boolean also becomes object so you need to destructure it.
 
-12)
+12) Props drilling is basically passing props from parent to child but when you have to send to your last child ,it will be very bad practice to use this concept becase the in between children b/w parent and last child will have nothing to do with this props ,so we will use this React Context.
+
+13) React Context is not exactly please don't say this in your interview that it acts like a global place | Central store from where you can access anything present in your context in your each and every corner of application.There are also other ways to handle props drilling.
+
+14) Where you can use this react context : User logged in details , Dark Mode | Theme
+
+15) Steps to create context : 
+
+    1) create a separate js file in utils.
+    2) Let's say UserContext.js 
+
+        import {createContext} from "react";
+
+        const UserContext = createContext({
+            loggedInUser: "Default User",
+        })
+
+        export default UserContext;
+
+    3) To use this contexxt you just need to use "useContext" hook;
+
+        const data= useContext(UserContext);
+
+                    Or
+
+        const {loggedInUser} = useContext(UserContext);
+
+    Note : Don't just put all data in your context ,only that data which is used in multiple components.
+
+
+    4) In class based component : We don't have hooks ,so we can use this 
+
+        <UserContext.Consumer>
+            {({loggedInUser}) => <h1 className=">{loggedInUser}</h1>} (Inside jsx in which we have callback funcion)
+        </UserContext.Consumer>
+
+    5) Let's suppose we have some authentication in log in and we want to change the value in my userContext ,then i will need a ReactContextProvider.
+
+         <UserContext.Provider value={{loggedInUser : userName }}>
+            <div className="App">
+                <Header />
+                <Outlet />
+            </div>
+         </UserContext.Provider>
+
+        I have wrapped it over all my app ,then it will reflect in my whole application.
+
+        If i have wrapped only Header ,then it will only refelct in header component.
+
+    6) Can i have nested Providers ,Yes you can and also change values according to you requirement.
+
+            <UserContext.Provider value={{loggedInUser : userName }}>
+                <div className="App">
+
+                    <UserContext.Provider value={{loggedInUser : "Elon Musk" }}>
+                        <Header />
+                    </UserContext.Provider>
+                    <Outlet />
+                </div>
+             </UserContext.Provider>
+
+
+    7) Redux works in large scale application ,but that doesn't mean you can't use React Context in large scale application. Redux used in Industry as it helps in scaling your applcation
+
+
+
+
+
+||||||||||||         EPISODE 12 - Let's Build our store         |||||||||||||||
+
+
+1) Redux is not mandatory ,All the apps which have used redux ,can be made without it as well.
+
+2) Redux is not a part of React it is a state management tool and not required to use only with react.
+
+3) You can check other store as well ,example : zustand 
+
+4) Redux offers easy debugging.
+
+5) Redux store is kind of very large js object and it is kept in central global space, any component can read /write data from it.
+
+6) Now question is: is it good to have all data inside it ,yes it is absolutely fine.
+
+7) We divide our whole store into small ones called "Slices" ,we can create separate slice for different objectives ,like restaurant card ,themes, menu
+
+8) Flow of RTK :
+
+    let's take an example of adding items in cart:
+
+
+    How to write data:
+        ADD Button -> Dispatch(Action) -> Function to change slice content -> Cart Slice
+
+        Note : This function is known as Reducer 
+
+    How to read data: 
+
+        We will be using Selector to read the data from cart slice and it will give you the data.
+
+        Cart Slice -> Selector -> Cart Total on UI header 
+
+        Note : This Selector is subscribing to the store. Here susbscribing means syncing ,as soon as my store changes ,it will update on UI as well.
+
+
+9) Installing React Redux Toolkit
+
+    -Install @reduxjs/toolkit and react-redux
+    -Build our store
+    -Connect app with store
+    -Slice(cartSlice)
+    -dispatch(action)
+    -Selector
+
+10) @reduxjs/toolkit will help in configuring our Store,createSlice and react-redux will give you Provider
+
+
+    Syntax: To create store first boilerplate
+    
+    import {configureStore} from '@reduxjs/toolkit';
+
+    const appStore = configureStore({
+    })
+
+    Syntax: Providing this store to our app
+    
+    <Provider store="storename">
+                Application component wrapped inside provider
+    </Provider>
+
+    You can also use Provider only where you need that store ,above i have wrapped inside my whole application
+
+
+    Syntax: Creating Slice
+
+        import createSlice from "@reduxjs/toolkit";
+
+        const cartSlice =createSlice({
+            name: 'cart',
+            initialState: {
+                items: []
+            }
+
+            reducers: {
+                addItem : (state,action) => {
+                    state.items.push(action.payload); //why this action.payload ,because when this function will calls from UI ,it will create a object having value inside payload: {payload: "pizza"}
+                },
+                removeItem : (state) => {
+                    state.item.pop();
+                },
+                clearCart: (state) => {
+                    state.item.length = 0;     
+                }
+            }
+        })
+
+        export const {addItems,removeItem,clearCart} = carSlice.actions;   -> why you have used ,this is just syntax
+        export default cartSlice.Reducer; -> why we have done this because we need redcuer from cartSlice
+
+        note: state is the initialstate of slice,you don't required action in every function ,we have exported our actions as well as reducers
+
+    Syntax: Configuring store and add slice in it:
+
+    import {configureStore} from '@reduxjs/toolkit';
+    import cartReducer from "./cartSlice";
+
+    const appStore = configureStore({
+        redcuer:{
+            cart:cartReducer,
+            user:userReducer //if we have user slice
+        }
+    })
+
+
+    Syntax:  To read data from store in our app || Subscribing to store
+
+    We will be using useSelctor hook which provide the access to our cartStore
+
+    const cartItems = useSelector((store) => store.cart.items); //whenever my cart.items changes it wll reflect on my cartItems as well
+
+11) Note there is a lot of difference in between these three :
+    
+    
+    <button className="absolute bg-black text-white -ml-24 -mt-10 rounded-md border-2 p-1" onClick={() => handleClick(item?.card?.info)}>Add + </button>
+
+
+    ->onClick={() => handleClick(item)} this will create a callback and calls when clicked
+
+    ->onClick={handleClick(item?)} this will call function on fly
+
+    -> onClick={handleClick} this will just give the name of function
+
+12) Subscribing to correct store is very important otherwise it will lead to performance issue:
+
+    - const cartItems = useSelector((store) => store.cart.items); -> this will only change cartItems when your cart.items will change 
+
+
+    - 
+        const store =useSelector(store);
+        const cartItems = store.cart.items;
+
+        //this will subscribe to whole store 
+
+
+13) Reducer vs Reducers:
+
+    Reducer is used in whole app level where reducer contains different reducers
+
+    Reducers is small multiple reducer function for slice cart 
+
+    Please read it from documentation or internet as well
+
+14) In older redux ,redux itself used to say please don't mutate/change the state   
+
+    reducers: {
+        addItem : (state,action) => {
+            //state.items.push(action.payload);  //in rtk you have to mutate and do not required to return but behind the scene it is actually doing the same which we mentioned below ,Redux used the immer library to do that ,you can read about that
+
+            //older redux or vanilla redux we used to do like this ,mutation is not allowed and returning is manadatory
+
+            const newState = [...state];
+            newState.items.push(Action.payload);
+            return newState 
+        },
+        removeItem : (state) => {
+            state.items.pop();
+        },
+        clearCart: (state) => {
+            state.items.length = 0;     
+        },
+    }
+
+
+    Also why we can't do something like this in clearCart : state = [] because it will give you a local variable state and changes in that variable only ,so it will not effect on your actual state or original state
+
+    reducers: {
+        addItem : (state,action) => {
+            state.items.push(action.payload);
+        },
+        removeItem : (state) => {
+            state.items.pop();
+        },
+        clearCart: (state) => {
+            console.log(state) //this will console the original state but it will give you proxy object ,so if you want to console the state ,you have to do current(state)
+
+            console.log(current(state)) 
+            state=[]
+            console.log(state); //this you can see the log
+            //state.items.length = 0;     
+        },
+    }
+
+
+    Also you should know about RTK is that you can either return or mutate the state;;
+
+
+    reducers: {
+        addItem : (state,action) => {
+            state.items.push(action.payload);
+        },
+        removeItem : (state) => {
+            state.items.pop();
+        },
+        clearCart: (state) => {
+            return {item: []};
+            //state.items.length = 0;     
+        },
+    }
+
+15) We have ussed extension named redux dev tool for our application ,as it will provide you the logs for action and gives you a trace everything , you can even jump to diffeent states , 
+
+16) Try to learn about RTK query - In older version we used to use middleware ,redux thungs , 
+
+17) I have added one more feature to it:  const totalPrice = cartItems.reduce(
+    (total, item) =>
+      total + (item.card.info.price ? item.card.info.price / 100 : item.card.info.defaultPrice / 100),
+    0
+  ); 
+
+  Reduce is use to caluclate total price of cart
