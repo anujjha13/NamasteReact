@@ -22,6 +22,7 @@ const DishCard = (props) => {
                 <div>
                 <img className="size-20 border-black border-2 rounded-md "src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/"+item?.card?.info.imageId}/>
                 <button className="absolute bg-black text-white -ml-24 -mt-10 rounded-md border-2 p-1" onClick={() => handleClick(item)}>Add + </button>
+                {item.quantity ? <h5> Qty : {item.quantity} </h5> : ""}
                 </div>
               </div>  
             </div>
