@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
 import {clearCart} from "../../utils/cartSlice";
 import DishCard from './DishCard';
+import EmptyCart from './EmptyCart';
 const Cart = () => {
 
   const cartItems = useSelector((store) => store.cart.items);
@@ -28,16 +29,15 @@ const Cart = () => {
     dispatch(clearCart());
   }
   return (
-    <div className="w-9/12 align-center justify-self-center mt-10">
-        <div className="text-center font-bold text-2xl text-red-600">
-            <h2> Items in your  🛒  </h2> 
+    <div className="w-9/12 align-center justify-self-center mt-10 bg-gradient-to-r from-red-300 via-purple-500 to-indigo-400 p-2 rounded-2xl shadow-lg">
+        <div className="text-center font-bold text-4xl text-black p-2">
+            <h1> Items in  🛒  </h1> 
         </div>
         <DishCard dishObj={groupedItemsArray}/> 
-        {cartItems.length === 0 ? <h2 className="text-center m-8 font-bold ">Your Cart is Empty !!! Please add items to your cart</h2> : 
-              
-                <div className="text-center font-bold text-2xl text-black rounded-md bg-purple-300 mt-3 p-2 flex justify-between">
-                  <button className="text-black p-1 rounded shadow-lg bg-red-700" onClick={handleClick}>
-                        Clear Cart  🗑   ️
+        {cartItems.length === 0 ? <EmptyCart/> : 
+                <div className="text-center font-bold text-2xl text-black rounded-md  mt-3 p-2 flex justify-between">
+                  <button className="text-white p-1 rounded shadow-lg bg-red-500" onClick={handleClick}>
+                         Clear Cart  🗑   ️
                   </button>
                   <h5>Total Price : Rs. {totalPrice}</h5>
                 </div> 

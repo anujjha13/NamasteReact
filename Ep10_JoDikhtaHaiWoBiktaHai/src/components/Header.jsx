@@ -14,7 +14,7 @@ const Header = () => {
                     <li className="mr-16"><Link to="/">Home </Link></li>
                     <li className="mr-16"><Link to="/contact">Contact Us </Link></li>
                     <li className="mr-16"><Link to="/instagrocery">Insta Grocery </Link></li>
-                    <li className="mr-16"><Link to="/cart">Cart 🛒 {cartItems.length === 0 ? "" : ": "+cartItems.length}</Link></li>
+                    <li className="mr-16"><Link to="/cart"> 🛒 Cart {cartItems.length === 0 ? "" : ": "+cartItems.length}</Link></li>
                 </ul>
             </div>
         </div>

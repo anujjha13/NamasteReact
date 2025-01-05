@@ -5,15 +5,15 @@ const RestaurantCard = (props) =>{
     return (
         
         // <Link to={"/restaurant/"+id}> I have used it while creating the card in Body
-            <div className="bg-red-400 p-2 m-2 max-size-104 hover:border-2 border-red-700" >
+            <div className="bg-red-400 p-2 m-2 max-size-104 hover:border-2 border-red-700 font-bold" >
                     <img className="size-96"alt="restaurant-img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/"+resObj.info.cloudinaryImageId}/>
-                    <div className="res-detail">
+                    <div className="p-2">
                         <h3>{name}</h3>
                         <h4>Location : {locality}</h4>
                     </div>
-                    <div className="text-wrap">
+                    <div className="text-wrap p-2 font-bold">
                         <h5 className="text-balance">Cuisines : {cuisines.slice(0, 3).join(",")}</h5>
-                        <h5>Rating : {avgRating}</h5>
+                        <h5>Rating : {avgRating} ⭐️</h5>
                     </div>
             </div>
         // </Link>

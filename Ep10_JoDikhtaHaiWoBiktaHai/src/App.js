@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import {About} from "./components/About";
 // import InstaGrocery from "./components/InstaGrocery";
-import {Contact} from "./components/Contact";
+import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import {Error} from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
