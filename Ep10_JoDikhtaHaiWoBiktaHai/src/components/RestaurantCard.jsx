@@ -26,7 +26,7 @@ const RestaurantCard = (props) =>{
 export const DiscountLabel = (RestaurantCard) => {
     
     return (props) => {
-        console.log(props?.resObj?.info?.aggregatedDiscountInfoV3);
+        //console.log(props?.resObj?.info?.aggregatedDiscountInfoV3);
         const discountInfo = props?.resObj?.info?.aggregatedDiscountInfoV3;
         const header = discountInfo?.header;
         const subHeader = discountInfo?.subHeader;

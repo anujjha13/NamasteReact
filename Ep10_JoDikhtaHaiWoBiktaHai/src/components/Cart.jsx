@@ -7,7 +7,7 @@ import EmptyCart from './EmptyCart';
 const Cart = () => {
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  //console.log(cartItems);
   const groupedItems = cartItems.reduce((acc, item) => {
     const id = item.card.info.id; // Replace with your unique identifier
     if (!acc[id]) {
@@ -18,7 +18,7 @@ const Cart = () => {
     return acc;
   }, {});
   const groupedItemsArray = Object.values(groupedItems);
-  console.log(groupedItemsArray);
+  //console.log(groupedItemsArray);
   const totalPrice = groupedItemsArray.reduce(
     (total, item) =>
       total + (item.card.info.price ? item.card.info.price / 100 : item.card.info.defaultPrice / 100) * item.quantity,
@@ -29,7 +29,7 @@ const Cart = () => {
     dispatch(clearCart());
   }
   return (
-    <div className="w-9/12 align-center justify-self-center mt-10 bg-gradient-to-r from-red-300 via-purple-500 to-indigo-400 p-2 rounded-2xl shadow-lg">
+    <div className="w-9/12 align-center justify-self-center mt-10 bg-purple-500 p-2 rounded-2xl shadow-lg">
         <div className="text-center font-bold text-4xl text-black p-2">
             <h1> Items in  🛒  </h1> 
         </div>

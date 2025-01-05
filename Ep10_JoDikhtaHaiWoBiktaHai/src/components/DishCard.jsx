@@ -2,13 +2,13 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import {addItem} from "../../utils/cartSlice";
 const DishCard = (props) => {
-   console.log(props?.dishObj);
+   //console.log(props?.dishObj);
   // const {id,imageId,name,category,description,itemAttribute,price,ratings,defaultPrice}=props?.dishObj?.card?.info;
   const categoryMenu =  props?.dishObj;
   //console.log(categoryMenu);
   const dispatch = useDispatch();
   const handleClick = (item) => {
-    console.log(item);
+    //console.log(item);
     dispatch(addItem(item));
   }
   return (

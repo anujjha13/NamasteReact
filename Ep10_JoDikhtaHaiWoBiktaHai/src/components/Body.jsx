@@ -16,7 +16,7 @@ const Body = () => {
         );
 
         const json = await data.json();
-        console.log(json.data.cards[5]);
+        //console.log(json.data.cards[5]);
         
         // restaurantsToShow=json.data.cards.filter((card)=>{
         //     return card.card.card["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle";
