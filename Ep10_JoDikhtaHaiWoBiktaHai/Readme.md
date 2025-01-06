@@ -372,3 +372,55 @@ See the last section of video from 44:00 duration
   ); 
 
   Reduce is use to caluclate total price of cart
+
+18) Cors Code for cloudflare workers:
+
+   /**
+ * Welcome to Cloudflare Workers! This is your first worker.
+ *
+ * - Run "npm run dev" in your terminal to start a development server
+ * - Open a browser tab at http://localhost:8787/ to see your worker in action
+ * - Run "npm run deploy" to publish your worker
+ *
+ * Learn more at https://developers.cloudflare.com/workers/
+ */
+
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  const url = new URL(request.url)
+
+  const targetUrl=url.searchParams.get('url')
+
+  if(!targetUrl){
+    return new Response('Missing url query params',{status: 400});
+  }
+
+  const headers = new Headers(request.headers)
+  headers.set('Content-Type','application/json');
+
+  const targetRequest = new Request(targetUrl,{
+    method: request.method,
+    headers: headers,
+    body: request.method !== 'GET' && request.method !== 'HEAD' ? request.body : null,
+  })
+
+  try{
+    const response= await fetch(targetRequest)
+
+    const newHeaders = new Headers(response.headers)
+    newHeaders.set('Access-Control-Allow-Origin','*')
+    newHeaders.set('Access-Control-Allow-Methods','*') 
+    newHeaders.set('Access-Control-Allow-Headers','Content-Type,Authorization')
+
+    return new Response(response.body,{
+      status: response.status,
+      headers: newHeaders
+
+    })
+  }catch(err){
+    return new Response('Problems while reaching the url',{status: 500});
+  }
+}
