@@ -7,6 +7,7 @@
 4- Now we will try to make sibling html element in sibingtags.js file and fourth.html page
 
 5- Is order matter of script tag in html file : Yes if you try to use any React component in script.js file and put those script file above React script file.
+
     ❌ Incorrect order (React is not loaded before usage)
     <script src="script.js"></script>  <!-- script.js tries to use React but React is not loaded yet -->
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
